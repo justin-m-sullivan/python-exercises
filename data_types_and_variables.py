@@ -6,12 +6,12 @@
 # 1. You have rented some movies for your kids: The little mermaid (for 3 days), Brother Bear (for 5 days, they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a movie per day is 3 dollars, how much will you have to pay?
 total_rent_cost = 0.00
 rent_cost_per_day = 3.00
-little_mermaid_days()
-brother_bear_days()
-hercules_days()
+little_mermaid_days = 3
+brother_bear_days = 5
+hercules_days = 1
 
-total_rental_cost = rent_cost_per_day * (little_mermaid_days + brother_bear_days + hercules_days)
-
+total_rental_cost = rent_cost_per_day * (little_mermaid_days +  brother_bear_days +  hercules_days)
+print(total_rental_cost)
 # 2. Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays 400 dollars per hour, Amazon 380, and Facebook 350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
 google_hrly_rate = 400.00
 amazon_hrly_rate = 380.00
@@ -37,11 +37,11 @@ discount_applies = offer_not_expired and (two_items_or_more or is_premium_member
 
 print(discount_applies)
 
-/* Use the following code to follow the instructions below:
+`` Use the following code to follow the instructions below:
 
 username = 'codeup'
 password = 'notastrongpassword'
-Create a variable that holds a boolean value for each of the following conditions: */
+Create a variable that holds a boolean value for each of the following conditions: ``
 
 len(password) >= 5 and len(username) <= 20 and username != password and (username[0] != ' ' and password[0] != ' ')
 
