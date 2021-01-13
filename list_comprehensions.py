@@ -66,27 +66,42 @@ fruits_with_only_two_vowels
 [len(x) for x in fruits]
 
 # Exercise 9 - Make a variable named fruits_with_letter_a that contains a list of only the fruits that contain the letter "a"
-fruits_with_letter_a = [fruit for fruit in fruits if fruit in "a"]
+fruits_with_letter_a = [fruit for fruit in fruits if "a" in fruit]
 fruits_with_letter_a
 
 # Exercise 10 - Make a variable named even_numbers that holds only the even numbers 
-
-
+even_numbers = [num for num in numbers if num % 2 == 0]
+even_numbers
 
 
 # Exercise 11 - Make a variable named odd_numbers that holds only the odd numbers
+odd_numbers = [num for num in numbers if num % 2 != 0]
+odd_numbers
 
 # Exercise 12 - Make a variable named positive_numbers that holds only the positive numbers
+positive_numbers = [num for num in numbers if num > 0]
+positive_numbers
 
 # Exercise 13 - Make a variable named negative_numbers that holds only the negative numbers
+negative_numbers = [num for num in numbers if num < 0]
+negative_numbers
 
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
+[num for num in numbers if num >= 10]
 
 # Exercise 15 - Make a variable named numbers_squared that contains the numbers list with each element squared. Output is [4, 9, 16, etc...]
+numbers_squared = [num ** 2 for num in numbers]
+numbers_squared
 
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the numbers that are both odd and negative.
+odd_negative_numbers = [num for num in numbers if num < 0 and num % 2 != 0]
+odd_negative_numbers
 
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list containing each number plus five. 
+numbers_plus_5 = [num + 5 for num in numbers]
+numbers_plus_5
 
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
-
+import math
+primes = [num for num in numbers if num > 1 and range(2,math.floor(math.sqrt(num)))]
+primes
