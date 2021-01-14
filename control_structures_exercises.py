@@ -10,6 +10,12 @@ if day_of_week == "Monday":
 else: 
     print("Today is not Monday")
 ```
+# Alternatvely, the following code works as well:
+```
+if day_of_week.startswith("Mon"):
+    print("Today is Monday")
+```
+
 >> b. prompt the user for a day of the week, print out whether the day is a weekday or a weekend
 
 day_of_week = input("What is the day of the week? ")
@@ -18,6 +24,12 @@ if day_of_week in ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"):
     print("Today is a weekday")
 else: 
     print("Today is a weekend")
+
+# Alt code solution from demo:
+```
+if day_of_week.lower().startswith('s'):
+    print('Today is a weekend ')
+```
 
 >> c. create variables and make up values for
 
@@ -36,15 +48,18 @@ paycheck_amt = hrs_worked * hrly_rate
 
 >> write the python code that calculates the weekly paycheck. You get paid time and a half if you work more than 40 hours
 
-``` hrly_rate = input("What is your hourly rate? ")
+``` 
+hrly_rate = input("What is your hourly rate? ")
 hrs_worked = input("How many hours did you work this week? ")
 hrs_worked = float(hrs_worked)
 hrly_rate = float(hrly_rate)
 
 if hrs_worked > 40:
     overtime_hrs = hrs_worked - 40
+else:
+    overtime_hrs = 0
 
-paycheck_amt = (hrly_rate) * (hrs_worked) + overtime_hrs * (hrly_rate * 0.5)
+paycheck_amt = (hrly_rate) * (hrs_worked - overtime_hrs) + overtime_hrs * (hrly_rate * 1.5)
 print("Your weekly paycheck will be: $",paycheck_amt)```
     
 
@@ -100,8 +115,9 @@ n = 2
 while n ** 2 < 1_000_000:
     print(n)
     n = n ** 2
+    >> shorthand operator for the above line of code is n *= n
  2
- 4
+ 4  
  16
  256
  65536
@@ -138,7 +154,7 @@ while z >= 5:
 
 >> i. Write some code that prompts the user for a number, then shows a multiplication table up through 10 for that number.
 
-x = input("Enter a number: ")
+x = input("Enter a number: ") 
 x = int(x)
 
 y = 1
@@ -200,7 +216,25 @@ for is_x in range(1,50):
     if x % 2 != 0:
         print(f'Here is an odd number: {x}')
 
- 
+ >> Solution from demo
+ ```
+while True: 
+    user_number = int(input('Enter an odd number between 1 and 50'))
+    if user_number.isdigit():
+        user_number = int(user_number)
+        if user_number % 2 == 0:
+            continue
+        break
+
+ i = 1
+ while i <= 50:
+     if i == user_number:
+         print(f"Yikes! Skipping this number: {i}")
+         i += 2
+         continue
+    print(f"Here is an odd number:  {i}")
+    i += 2
+```
 
 >> Your output should look like this:
 
@@ -234,8 +268,21 @@ Here is an odd number: 47
 Here is an odd number: 49
 "
 >> The input function can be used to prompt for input and use that input in your python code. Prompt the user to enter a positive number and write a loop that counts from 0 to that number. (Hints: first make sure that the value the user entered is a valid number, also note that the input function returns a string, so you'll need to convert this to a numeric type.)
+```
+while True: 
+    user_input = int(input('Enter a positive number: '))
+    if user_input.isdigit():
+        user_input = int(user_input)
+        if user_input <= 0:
+            continue
+        break
 
+for i in range(0, user_input + 1):
+    print(i)
+```
 >> Write a program that prompts the user for a positive integer. Next write a loop that prints out the numbers from the number the user entered down to 1.
+
+
 
 ## 3. Fizzbuzz
 
@@ -244,7 +291,7 @@ Here is an odd number: 49
 >> Write a program that prints the numbers from 1 to 100.
 for x in range(1,101):
     print(x)
-    x = x + 1
+
 
 >> For multiples of three print "Fizz" instead of the number
 
@@ -253,33 +300,46 @@ for x in range (1,101):
         print('Fizz')
     else:
         print(x)
-    x= x + 1 
+
 
 >> For the multiples of five print "Buzz".
 
 for x in range (1,101):
-    if x % 5 == 0:
+    if x % 3 == 0:
+        print('Fizz')
+    elif x % 5 == 0:
         print('buzz')
     else: 
         print(x)
-    x = x + 1
+
 
 >> For numbers which are multiples of both three and five print "FizzBuzz".
 
 for x in range (1,101):
     if x % 3 == 0 and x % 5 == 0:
         print("FizzBuzz")
+    elif x % 3 == 0:
+        print('Fizz')
+    elif x % 5 == 0:
+        print('buzz')
     else:
         print(x)
-    x = x + 1
+
+# note that order matters above. If 'fizzbuzz' was not first in order of ifs, the output would not answer the query
 
 ## 4. Display a table of powers.
 
 >> Prompt the user to enter an integer.
 
-x = input("Enter an integer: ")
+x = int(input("Enter an integer: "))
 
 >>  Display a table of squares and cubes from 1 to the value entered.
+print()
+print("number | squared | cubed")
+print("-------| --------| ------")
+
+for i in range(1, x + 1):
+    print("%6d | %7d | %5d" % (i, i**2, i**3))
 
 >> Ask if the user wants to continue.
 >> Assume that the user will enter valid data.
@@ -302,6 +362,28 @@ number | squared | cubed
 >> Bonus: Research python's format string specifiers to align the table
 
 ## 5. Convert given number grades into letter grades.
+while True: 
+    numeric_grade = int(input("Enter a number grade: "))
+
+    #convert grade to letter grade
+
+    if numeric_grade >= 88:
+        print('A')
+    elif numeric_grade >= 80:
+        print('B')
+    elif numeric_grade >= 67:
+        print('C')
+    elif numeric_grade >= 60:
+        print('D')
+    else:
+        print('F')
+
+    # ask if user wants to continue 
+       
+    wants_to_continue = input('Do you want to continue? ')
+    
+    if wants_to_continue != 'yes':
+        break
 
 >> Prompt the user for a numerical grade from 0 to 100.
 >> Display the corresponding letter grade.
@@ -319,5 +401,16 @@ F : 59 - 0"
 >> Bonus: Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
 
 ## 6. Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+books = [
+    {"title": "The Splendid and the Vile", "author": "Erik Larson", "genre": "History"},
+    {"title": "Waiting for Godot", "author": "Samuel Beckett" , "genre": "Theatre"},
+    {"title": "The Birth of Tragedy" , "author": "Neitzsche" , "genre": "Philosophy"}]
+
+for book in books:
+    print("------")
+    print("title: {}".format(book['title']))
 
 >> Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+
+selected_genre = input("Please enter a genre: ")
+selected_books = [book for book in books if book['genre'] == selected_genre]
