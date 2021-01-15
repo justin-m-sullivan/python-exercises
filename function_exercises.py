@@ -19,19 +19,13 @@ def is_vowel(v):
     return v in 'aeiouAEIOU'
     # "return string.lower() in 'aeiou' also works"
 
-is_vowel(v)
+#is_vowel(v)
 
 
 # 3 Define a function named is_consonant. 
 # It should return True if the passed string is a consonant, False otherwise. 
 # Use your is_vowel function to accomplish this.
-def is_consonant(c):
-    
-    return c.isalpha() and not is_vowel(c)
-
- is_consonant()   
-        
-    
+ 
 
 # 4 Define a function that accepts a string that is a word. 
 # The function should capitalize the first letter of the word if the word starts with a consonant.
@@ -159,17 +153,17 @@ def normalize_name():
     return user_input
 
 #demo solution:
-def normalize_name(s):
-    valid_identifier = []
-    for char in s:
-        if char.isidentifier() or char == ' ':
-            valid_identifier.append(character)
-    valid_identifier = "".join(valid_identifier)
-    valid_identifier = valid_identifier.lower()
+# def normalize_name(s):
+ #   valid_identifier = []
+   # for char in s:
+      #  if char.isidentifier() or char == ' ':
+        #    valid_identifier.append(character)
+    #valid_identifier = "".join(valid_identifier)
+    #valid_identifier = valid_identifier.lower()
     #this removes any trailing or leading whitespace
-    valid_identifier = valid_identifier.strip()
-    valid_identifier = valid_identifier.replace(' ', '_')
-    return valid_identifier
+    #valid_identifier = valid_identifier.strip()
+    #valid_identifier = valid_identifier.replace(' ', '_')
+    #return valid_identifier
 
 #11. Write a function named cumulative_sum that accepts a list of numbers 
 # and returns a list that is the cumulative sum of the numbers in the list.
@@ -192,11 +186,11 @@ def cumulative_sum():
     return list(accumulate(user_nums))
 
 # demo solution with print statements:
-def cumulative_sum(list_of_numbers):
-    sums = [list_of_numbers[0]]
-    print(f"sums: {sums}")
-    for n in list_of_numbers[1:]:
-        previous_total = sums[-1]
-        sums.append(previous_total + n)
-        print(f'End of for loop. sums: {sums}')
-        return sums
+#def cumulative_sum(list_of_numbers):
+  #  sums = [list_of_numbers[0]]
+   # print(f"sums: {sums}")
+    #for n in list_of_numbers[1:]:
+      #  previous_total = sums[-1]
+       # sums.append(previous_total + n)
+       # print(f'End of for loop. sums: {sums}')
+       # return sums
