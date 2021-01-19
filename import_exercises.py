@@ -19,4 +19,13 @@ from function_exercises import apply_discount as discount
 # to help you solve the problem.
 
 # 1. How many different ways can you combine the letters from "abc" with the numbers 1, 2, and 3?
+from itertools import combinations
+
+from itertools import permutations
+
+len(list(combinations("ABC123",3)))
+# There are 20 different ways to combine abc with 123
+
 # 2. How many different ways can you combine two of the letters from "abcd"?
+len(list(permutations("abcd", 2)))
+# There are 12 ways
